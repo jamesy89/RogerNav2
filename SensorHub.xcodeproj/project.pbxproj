@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4529CA219A467300EC378D /* MrBeepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4529C9219A467300EC378D /* MrBeepViewController.swift */; };
+		2F4529CC219B695700EC378D /* SensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4529CB219B695700EC378D /* SensorManager.swift */; };
+		2F4529CE219CC07600EC378D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4529CD219CC07600EC378D /* StorageManager.swift */; };
+		2F4529D0219DDF1A00EC378D /* StartMrBeepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4529CF219DDF1A00EC378D /* StartMrBeepViewController.swift */; };
 		2FD3D7FD216BDA070051E4C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D7FC216BDA070051E4C3 /* AppDelegate.swift */; };
 		2FD3D7FF216BDA070051E4C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D7FE216BDA070051E4C3 /* ViewController.swift */; };
 		2FD3D802216BDA070051E4C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3D800216BDA070051E4C3 /* Main.storyboard */; };
 		2FD3D804216BDA080051E4C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3D803216BDA080051E4C3 /* Assets.xcassets */; };
 		2FD3D807216BDA080051E4C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3D805216BDA080051E4C3 /* LaunchScreen.storyboard */; };
+		2FD3D80F216BFB210051E4C3 /* StandaloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D80E216BFB210051E4C3 /* StandaloneViewController.swift */; };
+		2FD3D811216C08090051E4C3 /* RogernavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D810216C08090051E4C3 /* RogernavViewController.swift */; };
+		2FD3D815216EA93D0051E4C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D814216EA93D0051E4C3 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4529C9219A467300EC378D /* MrBeepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrBeepViewController.swift; sourceTree = "<group>"; };
+		2F4529CB219B695700EC378D /* SensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorManager.swift; sourceTree = "<group>"; };
+		2F4529CD219CC07600EC378D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		2F4529CF219DDF1A00EC378D /* StartMrBeepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMrBeepViewController.swift; sourceTree = "<group>"; };
 		2FD3D7F9216BDA070051E4C3 /* SensorHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3D7FC216BDA070051E4C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD3D7FE216BDA070051E4C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,9 @@
 		2FD3D803216BDA080051E4C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FD3D806216BDA080051E4C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FD3D808216BDA080051E4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FD3D80E216BFB210051E4C3 /* StandaloneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandaloneViewController.swift; sourceTree = "<group>"; };
+		2FD3D810216C08090051E4C3 /* RogernavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RogernavViewController.swift; sourceTree = "<group>"; };
+		2FD3D814216EA93D0051E4C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,13 @@
 				2FD3D803216BDA080051E4C3 /* Assets.xcassets */,
 				2FD3D805216BDA080051E4C3 /* LaunchScreen.storyboard */,
 				2FD3D808216BDA080051E4C3 /* Info.plist */,
+				2FD3D80E216BFB210051E4C3 /* StandaloneViewController.swift */,
+				2FD3D810216C08090051E4C3 /* RogernavViewController.swift */,
+				2FD3D814216EA93D0051E4C3 /* Constants.swift */,
+				2F4529C9219A467300EC378D /* MrBeepViewController.swift */,
+				2F4529CF219DDF1A00EC378D /* StartMrBeepViewController.swift */,
+				2F4529CB219B695700EC378D /* SensorManager.swift */,
+				2F4529CD219CC07600EC378D /* StorageManager.swift */,
 			);
 			path = SensorHub;
 			sourceTree = "<group>";
@@ -96,6 +117,12 @@
 				TargetAttributes = {
 					2FD3D7F8216BDA070051E4C3 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,8 +162,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD3D815216EA93D0051E4C3 /* Constants.swift in Sources */,
+				2FD3D80F216BFB210051E4C3 /* StandaloneViewController.swift in Sources */,
+				2F4529D0219DDF1A00EC378D /* StartMrBeepViewController.swift in Sources */,
 				2FD3D7FF216BDA070051E4C3 /* ViewController.swift in Sources */,
+				2F4529CA219A467300EC378D /* MrBeepViewController.swift in Sources */,
+				2FD3D811216C08090051E4C3 /* RogernavViewController.swift in Sources */,
 				2FD3D7FD216BDA070051E4C3 /* AppDelegate.swift in Sources */,
+				2F4529CC219B695700EC378D /* SensorManager.swift in Sources */,
+				2F4529CE219CC07600EC378D /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +321,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.attfoundry.spreefit.SensorHub;
+				PRODUCT_BUNDLE_IDENTIFIER = com.attfoundry.sensorhub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,10 +339,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.attfoundry.spreefit.SensorHub;
+				PRODUCT_BUNDLE_IDENTIFIER = com.attfoundry.sensorhub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
