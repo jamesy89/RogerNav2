@@ -214,10 +214,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dJc-U8-HUJ"/>
                     </view>
+                    <connections>
+                        <segue destination="Lqd-bt-m7U" kind="show" id="oBP-7z-Oek"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PC-gj-vdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="884" y="802.848575712144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="r2A-aP-tCr">
+            <objects>
+                <viewController id="Lqd-bt-m7U" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JTa-nZ-cAy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="EqO-z2-bSP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QeW-J6-PNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="1507"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="x5W-xS-ZVt">

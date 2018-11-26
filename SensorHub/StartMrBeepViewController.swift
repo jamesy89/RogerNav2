@@ -86,7 +86,6 @@ extension StartMrBeepViewController: SensorDelegate {
         
         let headingDiff = setHeading! - currHeading!
         absHeadingDiff = abs(headingDiff)
-        lbl_headingDiff.text = String(format: "%f˚", absHeadingDiff)
         
         if (headingDiff > 0.0) {
             if (absHeadingDiff < 180.0) {
@@ -106,8 +105,10 @@ extension StartMrBeepViewController: SensorDelegate {
             else {
                 // turn right
                 turnDirection = .Right
+                absHeadingDiff = abs(absHeadingDiff - 360);
             }
         }
+        lbl_headingDiff.text = String(format: "%f˚", absHeadingDiff)
         
         if (absHeadingDiff <= 5.0) {
             lbl_action.text = "Keep straight"
