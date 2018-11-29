@@ -12,6 +12,7 @@
 		2F4529CE219CC07600EC378D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4529CD219CC07600EC378D /* StorageManager.swift */; };
 		2F4529D0219DDF1A00EC378D /* StartMrBeepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4529CF219DDF1A00EC378D /* StartMrBeepViewController.swift */; };
 		2F81A97B21AC7CC300AFCA1A /* StartRogernavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F81A97A21AC7CC300AFCA1A /* StartRogernavViewController.swift */; };
+		2FC50CFD21AC889100572AFF /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC50CFC21AC889100572AFF /* BLEManager.swift */; };
 		2FD3D7FD216BDA070051E4C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D7FC216BDA070051E4C3 /* AppDelegate.swift */; };
 		2FD3D7FF216BDA070051E4C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D7FE216BDA070051E4C3 /* ViewController.swift */; };
 		2FD3D802216BDA070051E4C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3D800216BDA070051E4C3 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		2F4529CD219CC07600EC378D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2F4529CF219DDF1A00EC378D /* StartMrBeepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMrBeepViewController.swift; sourceTree = "<group>"; };
 		2F81A97A21AC7CC300AFCA1A /* StartRogernavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRogernavViewController.swift; sourceTree = "<group>"; };
+		2FC50CFC21AC889100572AFF /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		2FD3D7F9216BDA070051E4C3 /* SensorHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3D7FC216BDA070051E4C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD3D7FE216BDA070051E4C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				2F4529CB219B695700EC378D /* SensorManager.swift */,
 				2F4529CD219CC07600EC378D /* StorageManager.swift */,
 				2F81A97A21AC7CC300AFCA1A /* StartRogernavViewController.swift */,
+				2FC50CFC21AC889100572AFF /* BLEManager.swift */,
 			);
 			path = SensorHub;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				2FD3D80F216BFB210051E4C3 /* StandaloneViewController.swift in Sources */,
 				2F4529D0219DDF1A00EC378D /* StartMrBeepViewController.swift in Sources */,
 				2FD3D7FF216BDA070051E4C3 /* ViewController.swift in Sources */,
+				2FC50CFD21AC889100572AFF /* BLEManager.swift in Sources */,
 				2F4529CA219A467300EC378D /* MrBeepViewController.swift in Sources */,
 				2FD3D811216C08090051E4C3 /* RogernavViewController.swift in Sources */,
 				2FD3D7FD216BDA070051E4C3 /* AppDelegate.swift in Sources */,

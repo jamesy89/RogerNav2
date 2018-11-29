@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import CoreLocation
 
 class StartRogernavViewController: UIViewController {
-
+    var heading: Double = 0.0
+    var lat: Double = 0.0
+    var lon: Double = 0.0
+    
+    @IBOutlet weak var lbl_lat: UILabel!
+    @IBOutlet weak var lbl_lng: UILabel!
+    @IBOutlet weak var lbl_heading: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        BLEManager.shared.delegate = self
+        SensorManager.shared.delegate = self
+        SensorManager.shared.startLocationUpdates()
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -28,57 +38,50 @@ class StartRogernavViewController: UIViewController {
     */
 
 }
-/*
-extension StartRogernavViewController: CBPeripheralManagerDelegate {
-    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        if (peripheral.state == .poweredOn) {
-            print("Peripheral powered on")
-            
-            initService()
-            updateAdvertisingData()
+
+extension StartRogernavViewController: BLEDelegate {
+    func bleCommRecvd(command: BLECommand) {
+        switch command {
+        case .Heading:
+            let resp = String(format: "HEAD = %f", heading)
+            let data = resp.data(using: .utf8)
+            BLEManager.shared.writeDataTx(data:data!)
+            break
+        case .Location:
+            let resp = String(format: "DECLAT = %f\nDECLON = %f", lat, lon)
+            let data = resp.data(using: .utf8)
+            BLEManager.shared.writeDataTx(data:data!)
+            break
         }
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        for request in requests {
-            if let value = request.value {
-                let messageText = String(data: value, encoding: String.Encoding.utf8)
-                let command = messageText?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-                print(String(format: "Received: %@", command!))
-                
-                if (command! == "h") {
-                    print("Heading request")
-                    
-                    let resp = String(format: "HEAD = %f", heading!)
-                    let data = resp.data(using: .utf8)
-                    peripheralManager.updateValue(data!, for: tx!, onSubscribedCentrals: nil)
-                }
-                else if (command! == "o") {
-                    print("GPS request")
-                    
-                    let resp = String(format: "DECLAT = %f\nDECLON = %f", latitude!, longitude!)
-                    let data = resp.data(using: .utf8)
-                    peripheralManager.updateValue(data!, for: tx!, onSubscribedCentrals: nil)
-                }
-                else {
-                    print("Not recognized")
-                    
-                    let resp = String(format: "CMD ERROR")
-                    let data = resp.data(using: .utf8)
-                    peripheralManager.updateValue(data!, for: tx!, onSubscribedCentrals: nil)
-                }
-                
-                self.peripheralManager.respond(to: request, withResult: .success)
-            }
-        }
+    func bleConnected() {
+        
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
-        //
+    func bleDisconnected() {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFrom characteristic: CBCharacteristic) {
-        //
-    }
 }
-*/
+
+extension StartRogernavViewController: SensorDelegate {
+    func didUpdateLocation(lat: Double, lon: Double) {
+        //print("Delegate received - location")
+        self.lat = lat
+        self.lon = lon
+        lbl_lat.text = String(format: "%f", lat)
+        lbl_lng.text = String(format: "%f", lon)
+    }
+    
+    func didUpdateHeading(heading: Double) {
+        //print("Delegate received - heading")
+        self.heading = heading
+        lbl_heading.text = String(format: "%f˚", heading)
+    }
+    
+    func didFail(error: Error) {
+        
+    }
+    
+}

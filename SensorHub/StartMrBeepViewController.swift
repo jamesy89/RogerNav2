@@ -95,6 +95,7 @@ extension StartMrBeepViewController: SensorDelegate {
             else {
                 // turn left
                 turnDirection = .Left
+                absHeadingDiff = abs(absHeadingDiff - 360);
             }
         }
         else {
