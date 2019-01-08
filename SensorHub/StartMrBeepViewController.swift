@@ -31,12 +31,13 @@ class StartMrBeepViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        SensorManager.shared.delegate = self
-        scheduledTimerWithTimeInterval()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        SensorManager.shared.delegate = self
+        scheduledTimerWithTimeInterval()
         
         if let setHeading = setHeading {
             lbl_setHeading.text = String(format: "%f˚", setHeading)
@@ -62,7 +63,7 @@ class StartMrBeepViewController: UIViewController {
             synthesizer.speak(utterance)
         }
     }
-
+    
     /*
     // MARK: - Navigation
 

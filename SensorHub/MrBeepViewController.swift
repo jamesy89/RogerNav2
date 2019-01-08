@@ -23,6 +23,9 @@ class MrBeepViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         SensorManager.shared.startLocationUpdates()
         SensorManager.shared.delegate = self
         
@@ -30,10 +33,6 @@ class MrBeepViewController: UIViewController {
         
         let utterance = AVSpeechUtterance(string: "Current heading")
         synthesizer.speak(utterance)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class StorageManager: NSObject {
+    static let shared = StorageManager()
+    
+    private override init() {
+        super.init()
+        
+    }
+    
+    //func 
+}

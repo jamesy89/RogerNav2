@@ -56,7 +56,12 @@ extension RogernavViewController: BLEDelegate {
         
     }
     
+    func bleUnknownCommRecvd(commamd: String) {
+        
+    }
+    
     func bleConnected() {
+        print("RogerNav connected")
         performSegue(withIdentifier: "segue_startRogernav", sender: nil)
     }
     

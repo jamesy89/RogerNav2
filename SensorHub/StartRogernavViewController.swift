@@ -9,14 +9,16 @@
 import UIKit
 import CoreLocation
 
-class StartRogernavViewController: UIViewController {
+class StartRogernavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var heading: Double = 0.0
     var lat: Double = 0.0
     var lon: Double = 0.0
+    var log_msg: [String] = []
     
     @IBOutlet weak var lbl_lat: UILabel!
     @IBOutlet weak var lbl_lng: UILabel!
     @IBOutlet weak var lbl_heading: UILabel!
+    @IBOutlet weak var tableView_log: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,9 @@ class StartRogernavViewController: UIViewController {
         BLEManager.shared.delegate = self
         SensorManager.shared.delegate = self
         SensorManager.shared.startLocationUpdates()
+        
+        tableView_log.delegate = self
+        tableView_log.dataSource = self
     }
     
     /*
@@ -36,23 +41,61 @@ class StartRogernavViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return log_msg.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView_log.dequeueReusableCell(withIdentifier: "cell")!
+        cell.textLabel?.text = log_msg[indexPath.row]
+        
+        return cell
+    }
+    
+    func logMsg(msg: String) {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "HH:mm:ss"
+        let dateString = formatter.string(from: now)
+        
+        let msg1 = dateString + " - " + msg
+        log_msg.append(msg1)
+        tableView_log.reloadData()
+    }
 }
 
 extension StartRogernavViewController: BLEDelegate {
     func bleCommRecvd(command: BLECommand) {
         switch command {
         case .Heading:
+            logMsg(msg: "Heading request")
+            
             let resp = String(format: "HEAD = %f", heading)
             let data = resp.data(using: .utf8)
             BLEManager.shared.writeDataTx(data:data!)
             break
         case .Location:
-            let resp = String(format: "DECLAT = %f\nDECLON = %f", lat, lon)
-            let data = resp.data(using: .utf8)
+            logMsg(msg: "GPS request")
+            
+            var resp = String(format: "DECLAT = %f\n", lat)
+            var data = resp.data(using: .utf8)
+            BLEManager.shared.writeDataTx(data:data!)
+            
+            resp = String(format: "DECLON = %f\n", lon)
+            data = resp.data(using: .utf8)
             BLEManager.shared.writeDataTx(data:data!)
             break
+        case .Rssi:
+            logMsg(msg: "RSSI request")
+            break
         }
+    }
+    
+    func bleUnknownCommRecvd(commamd: String) {
+        let msg = "Unknown request: " + commamd
+        logMsg(msg: msg)
     }
     
     func bleConnected() {
@@ -60,7 +103,13 @@ extension StartRogernavViewController: BLEDelegate {
     }
     
     func bleDisconnected() {
-        self.dismiss(animated: true, completion: nil)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.debounceTimer), userInfo: nil, repeats: false)
+    }
+    
+    @objc func debounceTimer() {
+        if !BLEManager.shared.connected {
+            //self.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

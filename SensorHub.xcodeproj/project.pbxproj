@@ -40,6 +40,8 @@
 		2FD3D80E216BFB210051E4C3 /* StandaloneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandaloneViewController.swift; sourceTree = "<group>"; };
 		2FD3D810216C08090051E4C3 /* RogernavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RogernavViewController.swift; sourceTree = "<group>"; };
 		2FD3D814216EA93D0051E4C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7DEBC58FF63CACE519BFEC5F /* Pods-SensorHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SensorHub/Pods-SensorHub.debug.xcconfig"; sourceTree = "<group>"; };
+		EC07ABEFF82730361FDF7D48 /* Pods-SensorHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-SensorHub/Pods-SensorHub.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			children = (
 				2FD3D7FB216BDA070051E4C3 /* SensorHub */,
 				2FD3D7FA216BDA070051E4C3 /* Products */,
+				C2B7183A56BBA568C4DA805E /* Pods */,
+				8138A5B83FE7EBEF0368D1F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +95,22 @@
 			path = SensorHub;
 			sourceTree = "<group>";
 		};
+		8138A5B83FE7EBEF0368D1F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2B7183A56BBA568C4DA805E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DEBC58FF63CACE519BFEC5F /* Pods-SensorHub.debug.xcconfig */,
+				EC07ABEFF82730361FDF7D48 /* Pods-SensorHub.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,6 +118,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FD3D80B216BDA080051E4C3 /* Build configuration list for PBXNativeTarget "SensorHub" */;
 			buildPhases = (
+				4DD3E31C8FD3A45E5052AE1F /* [CP] Check Pods Manifest.lock */,
 				2FD3D7F5216BDA070051E4C3 /* Sources */,
 				2FD3D7F6216BDA070051E4C3 /* Frameworks */,
 				2FD3D7F7216BDA070051E4C3 /* Resources */,
@@ -162,6 +183,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DD3E31C8FD3A45E5052AE1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SensorHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FD3D7F5216BDA070051E4C3 /* Sources */ = {
@@ -320,6 +362,7 @@
 		};
 		2FD3D80C216BDA080051E4C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DEBC58FF63CACE519BFEC5F /* Pods-SensorHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +381,7 @@
 		};
 		2FD3D80D216BDA080051E4C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC07ABEFF82730361FDF7D48 /* Pods-SensorHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
