@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SensorHub" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FjD-h1-azV"/>
+                    <navigationItem key="navigationItem" title="Main Menu" id="4Vz-PJ-cja"/>
                     <connections>
                         <outlet property="btn_rogernav" destination="0BU-tg-24d" id="YCe-zG-4Mr"/>
                         <outlet property="btn_standalone" destination="l8Y-wL-VH5" id="Jzv-vs-nxL"/>
@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="1104.8" y="33.733133433283363"/>
         </scene>
-        <!--Standalone View Controller-->
+        <!--Standalone Menu-->
         <scene sceneID="7JP-Ux-twL">
             <objects>
                 <viewController id="QEK-td-hK8" customClass="StandaloneViewController" customModule="SensorHub" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,6 +88,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5Ig-EQ-DBE"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Standalone Menu" id="l9S-ko-TUs"/>
                     <connections>
                         <outlet property="btn_mrbeep" destination="OeM-ox-0Gf" id="sc4-B0-V8j"/>
                         <outlet property="btn_playback" destination="zOE-ow-HPb" id="QDA-Pl-7cb"/>
@@ -101,22 +102,78 @@
             </objects>
             <point key="canvasLocation" x="1823.2" y="33.733133433283363"/>
         </scene>
-        <!--View Controller-->
+        <!--Record Trip-->
         <scene sceneID="aSE-ia-a1h">
             <objects>
-                <viewController id="XUu-bF-pYf" sceneMemberID="viewController">
+                <viewController id="XUu-bF-pYf" customClass="RecordViewController" customModule="SensorHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CnG-r3-zfe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enB-5d-tsM">
+                                <rect key="frame" x="103" y="348" width="168" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Record current waypoint"/>
+                                <connections>
+                                    <action selector="manualRecord:" destination="XUu-bF-pYf" eventType="touchUpInside" id="5Uy-QO-zOd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of trip:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUl-hv-yxT">
+                                <rect key="frame" x="137" y="135" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Znb-xF-Zzd">
+                                <rect key="frame" x="58" y="178" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-Pz-ylP">
+                                <rect key="frame" x="151" y="227" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set name"/>
+                                <connections>
+                                    <action selector="setTripName:" destination="XUu-bF-pYf" eventType="touchUpInside" id="G0k-1Q-CCC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzd-Mr-Xre">
+                                <rect key="frame" x="139" y="481" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complete Trip"/>
+                                <connections>
+                                    <action selector="completeTrip:" destination="XUu-bF-pYf" eventType="touchUpInside" id="tyf-fY-2ZC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKW-YQ-DP4">
+                                <rect key="frame" x="127" y="413" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start auto-record"/>
+                                <connections>
+                                    <action selector="autoRecord:" destination="XUu-bF-pYf" eventType="touchUpInside" id="Q6p-aj-TDh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="WGx-k4-kGR"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Record Trip" id="mnX-e5-rGG"/>
+                    <connections>
+                        <outlet property="btn_autoRecord" destination="GKW-YQ-DP4" id="9ZV-b8-rab"/>
+                        <outlet property="btn_completeTrip" destination="Vzd-Mr-Xre" id="r5e-Vh-vOV"/>
+                        <outlet property="btn_manualRecord" destination="enB-5d-tsM" id="7XM-fv-hWz"/>
+                        <outlet property="btn_setTripName" destination="ymX-Pz-ylP" id="Qz6-fx-f3I"/>
+                        <outlet property="txt_tripName" destination="Znb-xF-Zzd" id="STx-wa-YQv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKa-NL-dGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2704.8000000000002" y="33.733133433283363"/>
         </scene>
-        <!--Mr Beep View Controller-->
+        <!--Set Heading-->
         <scene sceneID="mCS-IS-p7L">
             <objects>
                 <viewController id="zCy-bf-CPh" customClass="MrBeepViewController" customModule="SensorHub" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,6 +242,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iXV-kM-iMM"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Set Heading" id="PU9-13-cFV"/>
                     <connections>
                         <outlet property="lbl_heading" destination="cAM-hM-CCw" id="oCP-pX-mgc"/>
                         <outlet property="lbl_lat" destination="adS-BO-qtd" id="754-Qr-KwV"/>
@@ -303,22 +361,37 @@
             </objects>
             <point key="canvasLocation" x="884" y="1506.296851574213"/>
         </scene>
-        <!--View Controller-->
+        <!--Playback Trip-->
         <scene sceneID="x5W-xS-ZVt">
             <objects>
-                <viewController id="Ezv-PA-tB4" sceneMemberID="viewController">
+                <viewController id="Ezv-PA-tB4" customClass="PlaybackViewController" customModule="SensorHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecw-4j-v5W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nON-hX-3kb">
+                                <rect key="frame" x="16" y="228" width="343" height="419"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a trip from the list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubi-BM-8tm">
+                                <rect key="frame" x="93" y="82" width="188" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MSn-rN-fQ8"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Playback Trip" id="VMx-hb-mOd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnK-r2-TnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766" y="747"/>
+            <point key="canvasLocation" x="1765.5999999999999" y="745.27736131934034"/>
         </scene>
-        <!--Start Mr Beep View Controller-->
+        <!--Keep Heading-->
         <scene sceneID="PbM-qY-MWn">
             <objects>
                 <viewController id="gKA-LM-fYI" customClass="StartMrBeepViewController" customModule="SensorHub" customModuleProvider="target" sceneMemberID="viewController">
@@ -386,6 +459,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mrU-RU-5v6"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Keep Heading" id="Z4g-J0-Aci"/>
                     <connections>
                         <outlet property="lbl_action" destination="LwX-ba-B5v" id="1LH-MA-DkN"/>
                         <outlet property="lbl_currHeading" destination="mOE-dH-Fww" id="f3y-rq-1kS"/>

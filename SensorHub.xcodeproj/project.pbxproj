@@ -21,6 +21,11 @@
 		2FD3D80F216BFB210051E4C3 /* StandaloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D80E216BFB210051E4C3 /* StandaloneViewController.swift */; };
 		2FD3D811216C08090051E4C3 /* RogernavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D810216C08090051E4C3 /* RogernavViewController.swift */; };
 		2FD3D815216EA93D0051E4C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3D814216EA93D0051E4C3 /* Constants.swift */; };
+		2FD9683B21E67FE600C1E42F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD9683A21E67FE600C1E42F /* CoreData.framework */; };
+		2FD9683E21E6805F00C1E42F /* SensorHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9683C21E6805F00C1E42F /* SensorHub.xcdatamodeld */; };
+		2FD9684221E6997C00C1E42F /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9684121E6997C00C1E42F /* RecordViewController.swift */; };
+		2FD9684421E6999300C1E42F /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9684321E6999300C1E42F /* PlaybackViewController.swift */; };
+		2FD9684821E952C200C1E42F /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9684721E952C200C1E42F /* Waypoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		2FD3D80E216BFB210051E4C3 /* StandaloneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandaloneViewController.swift; sourceTree = "<group>"; };
 		2FD3D810216C08090051E4C3 /* RogernavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RogernavViewController.swift; sourceTree = "<group>"; };
 		2FD3D814216EA93D0051E4C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2FD9683A21E67FE600C1E42F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2FD9683D21E6805F00C1E42F /* SensorHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SensorHub.xcdatamodel; sourceTree = "<group>"; };
+		2FD9684121E6997C00C1E42F /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		2FD9684321E6999300C1E42F /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
+		2FD9684721E952C200C1E42F /* Waypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		7DEBC58FF63CACE519BFEC5F /* Pods-SensorHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SensorHub/Pods-SensorHub.debug.xcconfig"; sourceTree = "<group>"; };
 		EC07ABEFF82730361FDF7D48 /* Pods-SensorHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-SensorHub/Pods-SensorHub.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD9683B21E67FE600C1E42F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +102,10 @@
 				2F4529CD219CC07600EC378D /* StorageManager.swift */,
 				2F81A97A21AC7CC300AFCA1A /* StartRogernavViewController.swift */,
 				2FC50CFC21AC889100572AFF /* BLEManager.swift */,
+				2FD9683C21E6805F00C1E42F /* SensorHub.xcdatamodeld */,
+				2FD9684121E6997C00C1E42F /* RecordViewController.swift */,
+				2FD9684321E6999300C1E42F /* PlaybackViewController.swift */,
+				2FD9684721E952C200C1E42F /* Waypoint.swift */,
 			);
 			path = SensorHub;
 			sourceTree = "<group>";
@@ -98,6 +113,7 @@
 		8138A5B83FE7EBEF0368D1F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FD9683A21E67FE600C1E42F /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,11 +229,15 @@
 				2FD3D815216EA93D0051E4C3 /* Constants.swift in Sources */,
 				2FD3D80F216BFB210051E4C3 /* StandaloneViewController.swift in Sources */,
 				2F4529D0219DDF1A00EC378D /* StartMrBeepViewController.swift in Sources */,
+				2FD9684221E6997C00C1E42F /* RecordViewController.swift in Sources */,
 				2FD3D7FF216BDA070051E4C3 /* ViewController.swift in Sources */,
 				2FC50CFD21AC889100572AFF /* BLEManager.swift in Sources */,
+				2FD9684421E6999300C1E42F /* PlaybackViewController.swift in Sources */,
 				2F4529CA219A467300EC378D /* MrBeepViewController.swift in Sources */,
+				2FD9684821E952C200C1E42F /* Waypoint.swift in Sources */,
 				2FD3D811216C08090051E4C3 /* RogernavViewController.swift in Sources */,
 				2FD3D7FD216BDA070051E4C3 /* AppDelegate.swift in Sources */,
+				2FD9683E21E6805F00C1E42F /* SensorHub.xcdatamodeld in Sources */,
 				2F4529CC219B695700EC378D /* SensorManager.swift in Sources */,
 				2F4529CE219CC07600EC378D /* StorageManager.swift in Sources */,
 				2F81A97B21AC7CC300AFCA1A /* StartRogernavViewController.swift in Sources */,
@@ -420,6 +440,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FD9683C21E6805F00C1E42F /* SensorHub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FD9683D21E6805F00C1E42F /* SensorHub.xcdatamodel */,
+			);
+			currentVersion = 2FD9683D21E6805F00C1E42F /* SensorHub.xcdatamodel */;
+			path = SensorHub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2FD3D7F1216BDA070051E4C3 /* Project object */;
 }

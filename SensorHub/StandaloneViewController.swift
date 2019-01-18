@@ -68,11 +68,11 @@ class StandaloneViewController: UIViewController {
     }
     
     @IBAction func record(_ sender: Any) {
-        
+        performSegue(withIdentifier: "segue_record", sender: nil)
     }
     
     @IBAction func playback(_ sender: Any) {
-        
+        performSegue(withIdentifier: "segue_playback", sender: nil)
     }
     
 }
