@@ -11,6 +11,10 @@ import UIKit
 import CoreData
 
 class PlaybackViewController: UIViewController {
+    @IBOutlet weak var tableView_trips: UITableView!
+    
+    var tripInfo: [(String, Date)]? = []
+    var selectedTrip: (String, Date)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +28,9 @@ class PlaybackViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        StorageManager.shared.loadAllTripInfo()
+        tableView_trips.delegate = self
+        tableView_trips.dataSource = self
+        tripInfo = StorageManager.shared.loadAllTripInfo()
         /*
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -53,4 +59,43 @@ class PlaybackViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? TripInfoViewController {
+            vc.tripInfo = selectedTrip
+        }
+    }
+    
+}
+
+extension PlaybackViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tripInfo!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView_trips.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
+        let tripName = tripInfo![indexPath.row].0
+        cell.textLabel?.text = tripName
+        
+        let tripDate = tripInfo![indexPath.row].1
+        let df = DateFormatter()
+        df.dateFormat = "MM-dd-yyyy hh:mm:ss"
+        let dateString = df.string(from: tripDate)
+        cell.detailTextLabel?.text = dateString
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedTrip = tripInfo![indexPath.row]
+        performSegue(withIdentifier: "segue_tripinfo", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+    }
 }
