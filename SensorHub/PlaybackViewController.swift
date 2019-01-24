@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 import CoreData
 
@@ -15,6 +16,7 @@ class PlaybackViewController: UIViewController {
     
     var tripInfo: [(String, Date)]? = []
     var selectedTrip: (String, Date)!
+    let synthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ class PlaybackViewController: UIViewController {
         tableView_trips.delegate = self
         tableView_trips.dataSource = self
         tripInfo = StorageManager.shared.loadAllTripInfo()
+        
+        let utterance = AVSpeechUtterance(string: "Select a trip from the list")
+        synthesizer.speak(utterance)
         /*
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext

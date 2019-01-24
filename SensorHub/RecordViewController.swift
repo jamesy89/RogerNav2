@@ -168,6 +168,7 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
         if (isAutoRecording) {
             btn_autoRecord.setTitle("Stop auto record", for: UIControl.State.normal)
             timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
             
             let utterance = AVSpeechUtterance(string: "Starting auto record")
             synthesizer.speak(utterance)

@@ -430,7 +430,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLV-Ws-HO9">
-                                <rect key="frame" x="157" y="181" width="61" height="30"/>
+                                <rect key="frame" x="97" y="181" width="180" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start trip"/>
                                 <connections>
@@ -479,6 +479,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Trip Info" id="cEa-N3-vXT"/>
                     <connections>
+                        <outlet property="btn_startTrip" destination="nLV-Ws-HO9" id="RL6-k3-1Kb"/>
                         <outlet property="lbl_date" destination="d8E-zm-QLp" id="4Ja-Sm-EtU"/>
                         <outlet property="lbl_name" destination="pcs-x2-FAR" id="spd-uB-bSR"/>
                         <outlet property="lbl_numWaypoints" destination="rIc-aH-xb9" id="Enp-9Y-v0B"/>
