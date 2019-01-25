@@ -82,12 +82,14 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
             btn_autoRecord.isEnabled = false
             btn_completeTrip.isEnabled = false
             btn_setTripName.isEnabled = true
+            txt_tripName.isEnabled = true
+            txt_tripName.text = ""
         }
     }
     
     @IBAction func setTripName(_ sender: Any) {
         if let name = txt_tripName.text {
-            tripName = name
+            tripName = name.lowercased()
             
             if StorageManager.shared.tripExists(name: tripName!) {
                 let alert = UIAlertController(title: "Name already used", message: "The name has already been used, try using a different name.", preferredStyle: .alert)
@@ -167,7 +169,7 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
         
         if (isAutoRecording) {
             btn_autoRecord.setTitle("Stop auto record", for: UIControl.State.normal)
-            timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
             RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
             
             let utterance = AVSpeechUtterance(string: "Starting auto record")

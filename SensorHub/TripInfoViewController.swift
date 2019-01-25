@@ -151,7 +151,7 @@ class TripInfoViewController: UIViewController {
         let utterance = AVSpeechUtterance(string: turnDir.rawValue)
         synthesizer.speak(utterance)
         
-        if (distToWaypoint <= 10.0) {
+        if (distToWaypoint <= 5.0) {
             print("Waypoint reached")
             let utterance = AVSpeechUtterance(string: "Waypoint reached")
             synthesizer.speak(utterance)
