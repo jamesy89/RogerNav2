@@ -95,6 +95,19 @@ extension PlaybackViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let tripName = tripInfo![indexPath.row].0
+            StorageManager.shared.deleteTrip(tripName: tripName)
+            
+            tripInfo!.remove(at: indexPath.row)
+            tableView_trips.deleteRows(at: [indexPath], with: .fade)
+            
+            let utterance = AVSpeechUtterance(string: String(format: "Trip %@ deleted", tripName))
+            synthesizer.speak(utterance)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTrip = tripInfo![indexPath.row]
         performSegue(withIdentifier: "segue_tripinfo", sender: nil)

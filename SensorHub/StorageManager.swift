@@ -70,6 +70,29 @@ class StorageManager: NSObject {
         return tripInfo
     }
     
+    func deleteTrip(tripName: String) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Trip")
+        let predicate = NSPredicate(format: "name = %@", argumentArray: [tripName])
+        fetchRequest.predicate = predicate
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for result in results {
+                managedContext.delete(result)
+            }
+            try managedContext.save()
+            
+            return true
+        } catch {
+            print("Failed")
+        }
+        
+        return false
+    }
+    
     func loadTrip(tripName: String) -> [Waypoint]? {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -94,12 +117,12 @@ class StorageManager: NSObject {
         return nil
     }
     
-    func tripExists(name: String) -> Bool {
+    func tripExists(tripName: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Trip")
-        let predicate = NSPredicate(format: "name = %@", argumentArray: [name])
+        let predicate = NSPredicate(format: "name = %@", argumentArray: [tripName])
         fetchRequest.predicate = predicate
         
         do {

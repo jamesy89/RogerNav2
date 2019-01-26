@@ -91,7 +91,7 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
         if let name = txt_tripName.text {
             tripName = name.lowercased()
             
-            if StorageManager.shared.tripExists(name: tripName!) {
+            if StorageManager.shared.tripExists(tripName: tripName!) {
                 let alert = UIAlertController(title: "Name already used", message: "The name has already been used, try using a different name.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 
