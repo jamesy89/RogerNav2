@@ -20,6 +20,8 @@ class StartMrBeepViewController: UIViewController {
     @IBOutlet var lbl_headingDiff: UILabel!
     @IBOutlet var lbl_action: UILabel!
     
+    var lon: Double?
+    var lat: Double?
     var setHeading: Double?
     var currHeading: Double?
     var absHeadingDiff: Double!
@@ -42,12 +44,15 @@ class StartMrBeepViewController: UIViewController {
         if let setHeading = setHeading {
             lbl_setHeading.text = String(format: "%f˚", setHeading)
         }
+        
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         timer.invalidate()
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func scheduledTimerWithTimeInterval() {
@@ -64,6 +69,11 @@ class StartMrBeepViewController: UIViewController {
         }
     }
     
+    @IBAction func speakLocation(_ sender: Any) {
+        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", self.lon!, self.lat!))
+        synthesizer.speak(utterance)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -78,7 +88,8 @@ class StartMrBeepViewController: UIViewController {
 
 extension StartMrBeepViewController: SensorDelegate {
     func didUpdateLocation(lat: Double, lon: Double) {
-        //
+        self.lat = lat
+        self.lon = lon
     }
     
     func didUpdateHeading(heading: Double) {

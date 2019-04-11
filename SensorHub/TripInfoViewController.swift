@@ -25,6 +25,7 @@ class TripInfoViewController: UIViewController {
     var totalWaypoints: Int!
     var tripStarted: Bool! = false
     var timer: Timer?
+    var waypointProx: Int!
     let synthesizer = AVSpeechSynthesizer()
 
     @IBOutlet weak var lbl_name: UILabel!
@@ -32,6 +33,8 @@ class TripInfoViewController: UIViewController {
     @IBOutlet weak var lbl_numWaypoints: UILabel!
     @IBOutlet weak var tableView_waypoints: UITableView!
     @IBOutlet weak var btn_startTrip: UIButton!
+    @IBOutlet weak var lbl_waypointProx: UILabel!
+    @IBOutlet weak var slider_waypointProx: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,18 +62,24 @@ class TripInfoViewController: UIViewController {
         df.dateFormat = "MM-dd-yyyy hh:mm:ss"
         let dateString = df.string(from: tripInfo.1)
         
+        waypointProx = Int(slider_waypointProx.value)
+        lbl_waypointProx.text = String(format: "%i meters", Int(slider_waypointProx.value))
+        
         lbl_date.text = dateString
         lbl_name.text = tripInfo.0
         lbl_numWaypoints.text = String(format: "%d waypoints", waypoints.count)
         
         let utterance = AVSpeechUtterance(string: "Start trip when ready")
         synthesizer.speak(utterance)
+        
+        reset()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         SensorManager.shared.stopLocationUpdates()
+        timer?.invalidate()
     }
 
     /*
@@ -82,6 +91,13 @@ class TripInfoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func reset() {
+        btn_startTrip.setTitle("Start trip", for: UIControl.State.normal)
+        tripStarted = false
+        tableView_waypoints.deselectRow(at: IndexPath(row: currWaypointInd, section: 0), animated: false)
+        currWaypointInd = 0
+    }
 
     @IBAction func startTrip(_ sender: Any) {
         tripStarted = !tripStarted
@@ -113,6 +129,11 @@ class TripInfoViewController: UIViewController {
             let utterance = AVSpeechUtterance(string: "Trip paused")
             synthesizer.speak(utterance)
         }
+    }
+    
+    @IBAction func speakLocation(_ sender: Any) {
+        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", currCoord.lon, currCoord.lat))
+        synthesizer.speak(utterance)
     }
     
     @objc func fireTimer() {
@@ -151,7 +172,7 @@ class TripInfoViewController: UIViewController {
         let utterance = AVSpeechUtterance(string: turnDir.rawValue)
         synthesizer.speak(utterance)
         
-        if (distToWaypoint <= 5.0) {
+        if (distToWaypoint <= Double(waypointProx!)) {
             print("Waypoint reached")
             let utterance = AVSpeechUtterance(string: "Waypoint reached")
             synthesizer.speak(utterance)
@@ -163,10 +184,7 @@ class TripInfoViewController: UIViewController {
                 let utterance = AVSpeechUtterance(string: "Trip complete")
                 synthesizer.speak(utterance)
                 
-                btn_startTrip.setTitle("Start trip", for: UIControl.State.normal)
-                tripStarted = false
-                tableView_waypoints.deselectRow(at: IndexPath(row: currWaypointInd, section: 0), animated: false)
-                currWaypointInd = 0
+                reset()
                 
                 return
             }
@@ -261,6 +279,10 @@ class TripInfoViewController: UIViewController {
         delta = atan2(delta, denom)
         
         return delta * 6372795
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        lbl_waypointProx.text = String(format: "%i meters", Int(slider_waypointProx.value))
     }
 }
 

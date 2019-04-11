@@ -72,6 +72,11 @@ class MrBeepViewController: UIViewController {
         
         performSegue(withIdentifier: "segue_startMrbeep", sender: nil)
     }
+    
+    @IBAction func speakLocation(_ sender: Any) {
+        SensorManager.shared.speakLocation()
+    }
+    
 }
 
 extension MrBeepViewController: SensorDelegate {

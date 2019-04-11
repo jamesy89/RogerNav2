@@ -52,6 +52,13 @@ class StandaloneViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        SensorManager.shared.delegate = self
+        SensorManager.shared.startLocationUpdates()
+    }
 
     /*
     // MARK: - Navigation
@@ -75,6 +82,24 @@ class StandaloneViewController: UIViewController {
         performSegue(withIdentifier: "segue_playback", sender: nil)
     }
     
+    @IBAction func speakLocation(_ sender: Any) {
+        SensorManager.shared.speakLocation()
+    }
+    
+}
+
+extension StandaloneViewController: SensorDelegate {
+    func didUpdateLocation(lat: Double, lon: Double) {
+        
+    }
+    
+    func didUpdateHeading(heading: Double) {
+        
+    }
+    
+    func didFail(error: Error) {
+        
+    }
 }
 
 extension StandaloneViewController: CLLocationManagerDelegate {

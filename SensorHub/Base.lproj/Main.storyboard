@@ -40,7 +40,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main Menu" id="4Vz-PJ-cja"/>
+                    <navigationItem key="navigationItem" title="Main Menu" id="4Vz-PJ-cja">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="ka5-q5-4tJ">
+                            <connections>
+                                <action selector="speakLocation:" destination="BYZ-38-t0r" id="zZ0-hs-WX2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btn_rogernav" destination="0BU-tg-24d" id="YCe-zG-4Mr"/>
                         <outlet property="btn_standalone" destination="l8Y-wL-VH5" id="Jzv-vs-nxL"/>
@@ -88,7 +94,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5Ig-EQ-DBE"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Standalone Menu" id="l9S-ko-TUs"/>
+                    <navigationItem key="navigationItem" title="Standalone Menu" id="l9S-ko-TUs">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="1Ol-Xa-m6W">
+                            <connections>
+                                <action selector="speakLocation:" destination="QEK-td-hK8" id="BjJ-10-9LV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btn_mrbeep" destination="OeM-ox-0Gf" id="sc4-B0-V8j"/>
                         <outlet property="btn_playback" destination="zOE-ow-HPb" id="QDA-Pl-7cb"/>
@@ -160,7 +172,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="WGx-k4-kGR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Record Trip" id="mnX-e5-rGG"/>
+                    <navigationItem key="navigationItem" title="Record Trip" id="mnX-e5-rGG">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="SIl-P7-aWS">
+                            <connections>
+                                <action selector="speakLocation:" destination="XUu-bF-pYf" id="DBY-Ol-b2Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btn_autoRecord" destination="GKW-YQ-DP4" id="9ZV-b8-rab"/>
                         <outlet property="btn_completeTrip" destination="Vzd-Mr-Xre" id="r5e-Vh-vOV"/>
@@ -242,7 +260,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iXV-kM-iMM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Set Heading" id="PU9-13-cFV"/>
+                    <navigationItem key="navigationItem" title="Set Heading" id="PU9-13-cFV">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="Wfp-pv-oW8">
+                            <connections>
+                                <action selector="speakLocation:" destination="zCy-bf-CPh" id="d9s-so-Hsa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lbl_heading" destination="cAM-hM-CCw" id="oCP-pX-mgc"/>
                         <outlet property="lbl_lat" destination="adS-BO-qtd" id="754-Qr-KwV"/>
@@ -411,7 +435,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MSn-rN-fQ8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Playback Trip" id="VMx-hb-mOd"/>
+                    <navigationItem key="navigationItem" title="Playback Trip" id="VMx-hb-mOd">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="3JI-pF-gRB">
+                            <connections>
+                                <action selector="speakLocation:" destination="Ezv-PA-tB4" id="93i-z8-IGV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView_trips" destination="nON-hX-3kb" id="xOR-yT-e4m"/>
                         <segue destination="e0I-m6-s0V" kind="show" identifier="segue_tripinfo" id="7a1-9T-hHK"/>
@@ -430,7 +460,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLV-Ws-HO9">
-                                <rect key="frame" x="97" y="181" width="180" height="30"/>
+                                <rect key="frame" x="97" y="161" width="180" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start trip"/>
                                 <connections>
@@ -452,7 +482,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="THY-DE-sdg">
-                                <rect key="frame" x="16" y="237" width="343" height="410"/>
+                                <rect key="frame" x="16" y="258" width="343" height="389"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -473,16 +503,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="h21-Nx-93B">
+                                <rect key="frame" x="54" y="221" width="268" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="e0I-m6-s0V" eventType="valueChanged" id="7Ol-98-R3w"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-FU-ihv">
+                                <rect key="frame" x="103" y="192" width="168" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KtE-un-Jf3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Trip Info" id="cEa-N3-vXT"/>
+                    <navigationItem key="navigationItem" title="Trip Info" id="cEa-N3-vXT">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="PcD-89-xec">
+                            <connections>
+                                <action selector="speakLocation:" destination="e0I-m6-s0V" id="GlT-KS-AUx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btn_startTrip" destination="nLV-Ws-HO9" id="RL6-k3-1Kb"/>
                         <outlet property="lbl_date" destination="d8E-zm-QLp" id="4Ja-Sm-EtU"/>
                         <outlet property="lbl_name" destination="pcs-x2-FAR" id="spd-uB-bSR"/>
                         <outlet property="lbl_numWaypoints" destination="rIc-aH-xb9" id="Enp-9Y-v0B"/>
+                        <outlet property="lbl_waypointProx" destination="Lqq-FU-ihv" id="OaD-rs-z6q"/>
+                        <outlet property="slider_waypointProx" destination="h21-Nx-93B" id="ytZ-F2-xzJ"/>
                         <outlet property="tableView_waypoints" destination="THY-DE-sdg" id="QSs-s9-dhf"/>
                     </connections>
                 </viewController>
@@ -558,7 +610,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mrU-RU-5v6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Keep Heading" id="Z4g-J0-Aci"/>
+                    <navigationItem key="navigationItem" title="Keep Heading" id="Z4g-J0-Aci">
+                        <barButtonItem key="rightBarButtonItem" title="Get GPS" id="Y9w-gi-Mbu">
+                            <connections>
+                                <action selector="speakLocation:" destination="gKA-LM-fYI" id="rF7-Fd-Pga"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lbl_action" destination="LwX-ba-B5v" id="1LH-MA-DkN"/>
                         <outlet property="lbl_currHeading" destination="mOE-dH-Fww" id="f3y-rq-1kS"/>

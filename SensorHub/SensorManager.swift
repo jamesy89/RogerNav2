@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import CoreMotion
+import AVFoundation
 
 protocol SensorDelegate: AnyObject {
     func didUpdateLocation(lat: Double, lon: Double)
@@ -25,6 +26,7 @@ class SensorManager: NSObject {
     
     var motionManager: CMMotionManager?
     var locationManager: CLLocationManager?
+    let synthesizer = AVSpeechSynthesizer()
     
     private override init() {
         super.init()
@@ -52,6 +54,11 @@ class SensorManager: NSObject {
     
     func requestLocation() -> CLLocationCoordinate2D {
         return currCoord!
+    }
+    
+    func speakLocation() {
+        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", currCoord!.longitude, currCoord!.latitude))
+        synthesizer.speak(utterance)
     }
 }
 

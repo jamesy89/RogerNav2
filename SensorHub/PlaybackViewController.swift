@@ -30,12 +30,15 @@ class PlaybackViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        SensorManager.shared.delegate = self
         tableView_trips.delegate = self
         tableView_trips.dataSource = self
         tripInfo = StorageManager.shared.loadAllTripInfo()
         
         let utterance = AVSpeechUtterance(string: "Select a trip from the list")
         synthesizer.speak(utterance)
+        
+        UIApplication.shared.isIdleTimerDisabled = true
         /*
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -62,6 +65,8 @@ class PlaybackViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,6 +75,24 @@ class PlaybackViewController: UIViewController {
         }
     }
     
+    @IBAction func speakLocation(_ sender: Any) {
+        SensorManager.shared.speakLocation()
+    }
+    
+}
+
+extension PlaybackViewController: SensorDelegate {
+    func didUpdateLocation(lat: Double, lon: Double) {
+        
+    }
+    
+    func didUpdateHeading(heading: Double) {
+        
+    }
+    
+    func didFail(error: Error) {
+        
+    }
 }
 
 extension PlaybackViewController: UITableViewDelegate, UITableViewDataSource {

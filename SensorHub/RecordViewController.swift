@@ -46,12 +46,15 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
         
         let utterance = AVSpeechUtterance(string: "Start by entering a trip name")
         synthesizer.speak(utterance)
+        
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         SensorManager.shared.stopLocationUpdates()
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     @IBAction func completeTrip(_ sender: Any) {
@@ -85,6 +88,11 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
             txt_tripName.isEnabled = true
             txt_tripName.text = ""
         }
+    }
+    
+    @IBAction func speakLocation(_ sender: Any) {
+        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", self.lon!, self.lat!))
+        synthesizer.speak(utterance)
     }
     
     @IBAction func setTripName(_ sender: Any) {
@@ -171,6 +179,7 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
             btn_autoRecord.setTitle("Stop auto record", for: UIControl.State.normal)
             timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
             RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
+            manualRecord([])
             
             let utterance = AVSpeechUtterance(string: "Starting auto record")
             synthesizer.speak(utterance)
