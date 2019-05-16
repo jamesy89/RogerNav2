@@ -71,8 +71,7 @@ class StartMrBeepViewController: UIViewController {
     }
     
     @IBAction func speakLocation(_ sender: Any) {
-        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", self.lon!, self.lat!))
-        synthesizer.speak(utterance)
+        SensorManager.shared.speakLocation()
     }
     
     @IBAction func btn_resetHeading(_ sender: Any) {
@@ -81,7 +80,7 @@ class StartMrBeepViewController: UIViewController {
         lbl_action.text = "Keep straight"
         turnDirection = nil
         
-        let utterance = AVSpeechUtterance(string: "Heading reset")
+        let utterance = AVSpeechUtterance(string: String(format: "Heading reset to %d degrees", Int(setHeading!)))
         synthesizer.speak(utterance)
     }
     /*

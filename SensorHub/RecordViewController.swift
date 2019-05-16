@@ -91,8 +91,7 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func speakLocation(_ sender: Any) {
-        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", self.lon!, self.lat!))
-        synthesizer.speak(utterance)
+        SensorManager.shared.speakLocation()
     }
     
     @IBAction func setTripName(_ sender: Any) {

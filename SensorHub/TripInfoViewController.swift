@@ -132,8 +132,7 @@ class TripInfoViewController: UIViewController {
     }
     
     @IBAction func speakLocation(_ sender: Any) {
-        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", currCoord.lon, currCoord.lat))
-        synthesizer.speak(utterance)
+        SensorManager.shared.speakLocation()
     }
     
     @objc func fireTimer() {
