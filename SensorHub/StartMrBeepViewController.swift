@@ -43,6 +43,7 @@ class StartMrBeepViewController: UIViewController {
         
         if let setHeading = setHeading {
             lbl_setHeading.text = String(format: "%f˚", setHeading)
+            lbl_currHeading.text = String(format: "%f˚", setHeading)
         }
         
         UIApplication.shared.isIdleTimerDisabled = true
@@ -74,6 +75,15 @@ class StartMrBeepViewController: UIViewController {
         synthesizer.speak(utterance)
     }
     
+    @IBAction func btn_resetHeading(_ sender: Any) {
+        setHeading = currHeading
+        lbl_setHeading.text = String(format: "%f˚", setHeading!)
+        lbl_action.text = "Keep straight"
+        turnDirection = nil
+        
+        let utterance = AVSpeechUtterance(string: "Heading reset")
+        synthesizer.speak(utterance)
+    }
     /*
     // MARK: - Navigation
 

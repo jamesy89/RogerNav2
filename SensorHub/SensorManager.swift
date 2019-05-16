@@ -57,8 +57,30 @@ class SensorManager: NSObject {
     }
     
     func speakLocation() {
-        let utterance = AVSpeechUtterance(string: String(format: "Longitude is %f, latitude is %f", currCoord!.longitude, currCoord!.latitude))
+        let dms = convertDMS(lat: currCoord!.latitude, lng: currCoord!.longitude)
+        let utterance = AVSpeechUtterance(string: dms)
         synthesizer.speak(utterance)
+    }
+    
+    func toDegreesMinutesAndSeconds(coordinate: Double) -> String {
+        let absolute = abs(coordinate)
+        let degrees = floor(absolute)
+        let minutesNotTruncated = (absolute - degrees) * 60
+        let minutes = floor(minutesNotTruncated)
+        let seconds = floor((minutesNotTruncated - minutes) * 60)
+        
+        return String(format: "%d degrees %d minutes %d seconds", Int(degrees), Int(minutes), Int(seconds))
+    }
+    
+    func convertDMS(lat: Double, lng: Double) -> String {
+        let latitude = toDegreesMinutesAndSeconds(coordinate: lat)
+        let latitudeCardinal = lat >= 0 ? "North" : "South"
+    
+        let longitude = toDegreesMinutesAndSeconds(coordinate: lng)
+        let longitudeCardinal = lng >= 0 ? "East" : "West"
+    
+        //print(latitude + " " + latitudeCardinal + ", " + longitude + " " + longitudeCardinal)
+        return latitude + " " + latitudeCardinal + ", " + longitude + " " + longitudeCardinal
     }
 }
 
