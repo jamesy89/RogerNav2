@@ -75,13 +75,15 @@ class StartMrBeepViewController: UIViewController {
     }
     
     @IBAction func btn_resetHeading(_ sender: Any) {
-        setHeading = currHeading
-        lbl_setHeading.text = String(format: "%f˚", setHeading!)
-        lbl_action.text = "Keep straight"
-        turnDirection = nil
-        
-        let utterance = AVSpeechUtterance(string: String(format: "Heading reset to %d degrees", Int(setHeading!)))
-        synthesizer.speak(utterance)
+        if let currHeading = currHeading {
+            setHeading = currHeading
+            lbl_setHeading.text = String(format: "%f˚", setHeading!)
+            lbl_action.text = "Keep straight"
+            turnDirection = nil
+            
+            let utterance = AVSpeechUtterance(string: String(format: "Heading reset to %d degrees", Int(setHeading!)))
+            synthesizer.speak(utterance)
+        }
     }
     /*
     // MARK: - Navigation
